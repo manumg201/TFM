@@ -4,6 +4,7 @@
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "johnny-five": "^2.1.0",
+    "path": "^0.12.7",
     "socket.io": "^4.6.1"
   }
 }

@@ -3,11 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example</title>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <!-- Load MobileNet, necesario? -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script> -->
+    <!-- Load KNN Classifier -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+    <title>TFM</title>
   </head>
   <body>
     <h1>Example page</h1>
-    <button id="test">Test</button>
+    <!-- <button id="test">Test</button> -->
+    <select id="formularioClases" class="Form element" style="width: 100px;"></select>
+    <button id="record" class="element">Record Data</button>
+    <button id="recordTest" class="element">Record Test Data</button>
+    <button id="train" class="element">Train Model</button>
+    <button id="loadTest" class="element">TODO: Load Test Example</button>
+    <button id="start" class="element">Start</button>
+    <!-- <button id="stop" class="element">Stop</button> -->
+    <div id="KNNClass">KNN: </div>
+    <div id="SVMClass">SVM: </div>
+    <div id='dataPlotter'><!-- Plotly chart will be drawn inside this DIV --></div>
     
     <script src="index.js"></script>
   </body>
