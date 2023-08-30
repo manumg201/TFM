@@ -7,20 +7,21 @@ const fs = require("fs")
 app.use('/', express.static(path.join(__dirname, 'www')));
 
 const ARDUINO = false; // testing or sensor
-
+let parser;
+let port;
 //Arduino things - Esto si
 if(ARDUINO){
   const SerialPort = require("serialport");
   const ReadLine = require("@serialport/parser-readline");
   
-  const port = new SerialPort("COM5",{
+  port = new SerialPort("COM3",{
       baudRate:9600,
   })
   
-  const parser = new ReadLine();
+  parser = new ReadLine();
   port.pipe(parser);
   
-  parser.on("data", (line) => console.log(line.toString()));
+  //parser.on("data", (line) => console.log(line.toString()));
   
   
   // myPort.on('open', onOpen);
@@ -77,14 +78,14 @@ io.on('connection', (socket) => {
 
     // Send arduino data
     if(ARDUINO){
-    port.on('data', (data)=>{ 
-        if(sendData){
-          console.log(data.toString)
+      parser.on('data', (data)=>{ 
+          console.log("SENSOR_DATA", data.toString())
           socket.emit("SENSOR_DATA", data.toString());
-        }
     })}
     //Just for testing
-    else {setInterval(() => {socket.emit("SENSOR_DATA", parseInt(Math.random()*100).toString());}, 3)}
+    else {
+      setInterval(() => {socket.emit("SENSOR_DATA", parseInt(Math.random()*100 + 350).toString());}, 3)
+    }
       
     
     socket.on("SEND_DATA", () => {

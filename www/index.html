@@ -12,20 +12,27 @@
     <!-- Load KNN Classifier -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
     <title>TFM</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Example page</h1>
+    <h1>TFM</h1>
     <!-- <button id="test">Test</button> -->
-    <select id="formularioClases" class="Form element" style="width: 100px;"></select>
+    <select id="formularioClases" class="Form element"></select>
+    <input type="text" id="newClass" class="element" placeholder="New class name"/>
+    <button id="add" class="element">Add Class</button>
+    <button id="remove" class="element">Remove Class</button>
+    <br><br>
     <button id="record" class="element">Record Data</button>
     <button id="recordTest" class="element">Record Test Data</button>
     <button id="train" class="element">Train Model</button>
-    <button id="loadTest" class="element">TODO: Load Test Example</button>
-    <button id="start" class="element">Start</button>
+    <button id="loadTest" disabled>Load Test Example</button>
+    <button id="start" disabled>Start</button>
     <!-- <button id="stop" class="element">Stop</button> -->
+    <br><br>
+    <div id="RealTestClass">Real test class: </div>
     <div id="KNNClass">KNN: </div>
-    <div id="SVMClass">SVM: </div>
-    <div id='dataPlotter'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <!-- <div id="SVMClass">SVM: </div> -->
+    <div id='dataPlotter' style="width: 75%;"><!-- Plotly chart will be drawn inside this DIV --></div>
     
     <script src="index.js"></script>
   </body>
